@@ -1,7 +1,6 @@
 
 # coding: utf-8
 
-# In[2]:
 
 from IPython.display import display, HTML
 
@@ -20,7 +19,7 @@ from math import ceil
 from math import log
 from Level_set_function import Sinusoidal
 from functools import reduce 
-
+############################  function declaration  #################################################
 # Do partition to generate new sub-region
 def partition1(undecided_region,cut_dim, S_dist, B ,epsilon1, all_sort_x, all_sort_ds):
     num_of_region = undecided_region.shape[0]
@@ -187,17 +186,7 @@ def prob_prune(undecided_region,distance_matrix,ref,X):
     return maintain_region,remaining1_list, all_X, all_distance_matrix, prob_eli_undecide, prob_eli_eli,prob_eli_maintain
 
 
-# In[3]:
-
-from IPython.display import display, HTML
-
-display(HTML(data="""
-<style>
-    div#notebook-container    { width: 95%; }
-    div#menubar-container     { width: 65%; }
-    div#maintoolbar-container { width: 99%; }
-</style>
-"""))
+########################################## End of function declaration ##############################################
 
 import nbfinder
 from Level_set_function import Sinusoidal
@@ -205,7 +194,6 @@ import numpy as np
 import pandas as pd
 import time
 from scipy.stats import norm 
-
 
 
 B = 3       # partition regions into B sub-regions
@@ -217,9 +205,8 @@ x_star = np.array([90]*dim) # true global optimal
 ini_range_list = np.array([0,180]*dim).reshape((1, dim, 2))
 ini_range_list = ini_range_list.astype(float)
 S_dist = np.linalg.norm(ini_range_list[0, :, 1] - ini_range_list[0, :, 0])  # longest euclidean distance in initial region S
-ref = [0]
+ref = [0]   #feasibility threshold
 num_of_constraint = len(ref)
-np_all_data = np.array([]).reshape(0,7)
 
 for i in range(1):    
     print('----------------phase1------------------')
